@@ -31,5 +31,15 @@ namespace Dimension_Data_MVC_CORE_Project2.Controllers
             await _roleManger.CreateAsync(role);
             return RedirectToAction("Index");
         }
+        public IActionResult Delete()
+        {
+            return View(new IdentityRole());
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(IdentityRole role)
+        {
+            await _roleManger.DeleteAsync(role);
+            return RedirectToAction("Index");
+        }
     }
 }
